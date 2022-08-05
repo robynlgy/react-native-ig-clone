@@ -20,7 +20,7 @@ export const USERS = [
       'https://images.unsplash.com/photo-1472491235688-bdc81a63246e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80',
   },
   {
-    user: 'heelo',
+    user: 'helllo',
     image:
       'https://images.unsplash.com/photo-1593173589854-c9c28824cc89?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NjV8fHB1cHB5fGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
   },

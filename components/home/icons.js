@@ -41,11 +41,6 @@ export const bottomTabIcons = [
     name:'Shop',
     active:'https://img.icons8.com/ios-glyphs/60/ffffff/shopping-bag-full.png',
     inactive:'https://img.icons8.com/fluency-systems-regular/48/ffffff/shopping-bag-full.png',
-  },
-  {
-    name:'Profile',
-    active: 'https://images.unsplash.com/photo-1571988840298-3b5301d5109b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
-    inactive: 'https://images.unsplash.com/photo-1571988840298-3b5301d5109b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80'
   }
 ]
 export const headerIcons = {

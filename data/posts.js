@@ -17,7 +17,7 @@ export const POSTS = [
   },
   {
     imageUrl:
-      "https://images.unsplash.com/photo-1591053839326-792f85d2f331?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80",
+    "https://images.unsplash.com/photo-1591053839326-792f85d2f331?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80",
     user: USERS[1].user,
     likes: 2048,
     caption: "EVERYONE GETS BOXES THESE DAYS",

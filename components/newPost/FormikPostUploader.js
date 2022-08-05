@@ -1,31 +1,73 @@
 import { View, Text, TextInput, Image, StyleSheet, Button } from "react-native";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import * as Yup from "yup";
 import { Formik } from "formik";
 import { Divider } from "react-native-elements";
-import validUrl from 'valid-url';
+import validUrl from "valid-url";
 import { useNavigation } from "@react-navigation/native";
+import firebase from "firebase";
+
+const db = firebase.firestore();
 
 const uploadPostSchema = Yup.object().shape({
   imageUrl: Yup.string().url().required("A URL is required."),
   caption: Yup.string().max(2200, "Caption has reached the character limit."),
 });
 
-// const PLACEHOLDER_IMG = 'https://images.unsplash.com/photo-1607277126387-0a1592dddfb6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=765&q=80'
 const PLACEHOLDER_IMG =
   "https://img.icons8.com/fluency-systems-regular/96/ffffff/image.png";
 
 const FormikPostUploader = () => {
   const [thumbnailUrl, setThumbnailUrl] = useState(PLACEHOLDER_IMG);
+  const [currentLoggedInUser, setCurrentLoggedInUser] = useState(null);
   const navigation = useNavigation();
+
+  const getUserName = () => {
+    const user = firebase.auth().currentUser;
+    const unsubscribe = db
+      .collection("users")
+      .where("owner_uid", "==", user.uid)
+      .limit(1)
+      .onSnapshot((snapshot) =>
+        snapshot.docs.map((doc) => {
+          setCurrentLoggedInUser({
+            username: doc.data().username,
+            profilePicture: doc.data().profile_picture,
+          });
+        })
+      );
+    return unsubscribe;
+  };
+
+  useEffect(() => {
+    getUserName();
+  }, []);
+
+  const uploadPostToFirebase = (imageUrl, caption) => {
+    const unsubscribe = db
+      .collection("users")
+      .doc(firebase.auth().currentUser.email)
+      .collection("posts")
+      .add({
+        imageUrl: imageUrl,
+        user: currentLoggedInUser.username,
+        profile_picture: currentLoggedInUser.profilePicture,
+        owner_uid: firebase.auth().currentUser.uid,
+        owner_email:firebase.auth().currentUser.email,
+        caption: caption,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+        likes_by_users: [],
+        comments: []
+      }).then(() => navigation.goBack());
+
+      return unsubscribe
+  };
 
   return (
     <Formik
       initialValues={{ caption: "", imageUrl: "" }}
       onSubmit={(values) => {
-        console.log(values)
-        console.log('Your post has been submitted successfully!')
-        navigation.goBack()
+        uploadPostToFirebase(values.imageUrl,values.caption)
       }}
       validationSchema={uploadPostSchema}
       validateOnMount={true}
@@ -47,7 +89,14 @@ const FormikPostUploader = () => {
               flexDirection: "row",
             }}
           >
-            <Image source={{ uri: validUrl.isUri(thumbnailUrl)? thumbnailUrl: PLACEHOLDER_IMG }} style={styles.image} />
+            <Image
+              source={{
+                uri: validUrl.isUri(thumbnailUrl)
+                  ? thumbnailUrl
+                  : PLACEHOLDER_IMG,
+              }}
+              style={styles.image}
+            />
             <View style={{ flex: 1, marginLeft: 15 }}>
               <TextInput
                 style={{ color: "white", fontSize: 18 }}
@@ -65,7 +114,7 @@ const FormikPostUploader = () => {
             style={{ color: "white", marginTop: 15, marginLeft: 15 }}
             placeholder="Enter image URL"
             placeholderTextColor="grey"
-            onChange ={(e)=> setThumbnailUrl(e.nativeEvent.text)}
+            onChange={(e) => setThumbnailUrl(e.nativeEvent.text)}
             onChangeText={handleChange("imageUrl")}
             onBlur={handleBlur("imageUrl")}
             value={values.imageUrl}

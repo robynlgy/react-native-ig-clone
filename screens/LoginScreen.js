@@ -1,6 +1,6 @@
 import { View,Image, StyleSheet, SafeAreaView } from 'react-native'
 import React from 'react'
-import LoginForm from '../components/login/LoginForm';
+import LoginForm from '../components/authForms/LoginForm';
 
 const INSTAGRAM_LOGO = 'https://cdn2.iconfinder.com/data/icons/social-media-2285/512/1_Instagram_colored_svg_1-512.png'
 
