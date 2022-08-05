@@ -2,15 +2,14 @@
 
 ### Screenshots:
 
-<img src="https://j.gifs.com/WPRvNQ.gif" width="250">
+<!-- <img src="https://j.gifs.com/WPRvNQ.gif" width="250"> -->
+<img src="./public/screenshots/gif.gif" width="250">
 
-<img src="./public/screenshots/Homescreen.png" width="230">
-<img src="./public/screenshots/NewPost.png" width="230">
+<img src="./public/screenshots/Homescreen.png" width="230"> <img src="./public/screenshots/NewPost.png" width="230">
 
 - Login Authorization and Signup screens
 
-<img src="./public/screenshots/LoginAuth.png" width="230">
-<img src="./public/screenshots/SignupPage.png" width="230">
+<img src="./public/screenshots/LoginAuth.png" width="230"> <img src="./public/screenshots/SignupPage.png" width="230">
 
 
 ## References
