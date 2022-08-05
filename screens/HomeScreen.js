@@ -26,6 +26,10 @@ const HomeScreen = () => {
         {posts.map((post, index) => (
           <Post post={post} key={index} />
         ))}
+        {/* placeholder posts -- can't like these or it will break :>
+        {POSTS.map((post, index) => (
+          <Post post={post} key={index} />
+        ))} */}
       </ScrollView>
       <BottomTabs />
     </SafeAreaView>

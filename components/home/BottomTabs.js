@@ -16,11 +16,11 @@ const BottomTabs = () => {
     const unsubscribe = db
       .collection("users")
       .doc(firebase.auth().currentUser.email)
-      .get()
-      .then(doc=>{
-        const data = doc.data()
-        setCurrentLoggedInUser(data)
-      })
+      .onSnapshot((snapshot) =>
+        setCurrentLoggedInUser(snapshot?.data())
+      )
+      ;
+
     return unsubscribe;
   };
 
@@ -56,7 +56,7 @@ const BottomTabs = () => {
         <Pressable onPress={() => setActiveTab("Profile")}>
           <Image
             source={{
-              uri: currentLoggedInUser.profile_picture,
+              uri: currentLoggedInUser?.profile_picture,
             }}
             style={[
               styles.icon,

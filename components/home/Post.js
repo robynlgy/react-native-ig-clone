@@ -3,7 +3,7 @@ import { Divider } from "react-native-elements";
 import React from "react";
 import { postFooterIcons } from "./icons";
 import firebase from "../../firebase";
-
+import { POSTS } from "../../data/posts";
 const db = firebase.firestore();
 
 // Props: post object
@@ -145,7 +145,7 @@ const ViewComments = ({ post }) => {
       {!!post.comments.length && (
         <TouchableOpacity>
           <Text style={{ color: "grey" }}>
-            View {!!post.comments.length > 1 && "all "}
+            View {post.comments.length > 1 && "all "}
             {post.comments.length}{" "}
             {post.comments.length > 1 ? "comments" : "comment"}
           </Text>
@@ -166,6 +166,7 @@ const Comments = ({ post }) => {
           </Text>
         </View>
       ))}
+
     </View>
   );
 };

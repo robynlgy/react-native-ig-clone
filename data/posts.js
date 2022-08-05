@@ -5,7 +5,7 @@ export const POSTS = [
     imageUrl:
       "https://images.unsplash.com/photo-1622763853951-ded5a33cb724?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
     user: USERS[0].user,
-    likes: 1358,
+    likes_by_users: ['test','test','test','test','test','test','test','test','test','test','test','test','test'],
     caption: "New place! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt architecto numquam laudantium placeat dolorem voluptatum iste autem quae cumque, nobis, consectetur repudiandae omnis ad voluptate beatae! Dolore nostrum provident molestias",
     profile_picture: USERS[0].image,
     comments: [
@@ -19,7 +19,7 @@ export const POSTS = [
     imageUrl:
     "https://images.unsplash.com/photo-1591053839326-792f85d2f331?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80",
     user: USERS[1].user,
-    likes: 2048,
+    likes_by_users: ['test','test','test','test','test','test','test','test','test'],
     caption: "EVERYONE GETS BOXES THESE DAYS",
     profile_picture: USERS[1].image,
     comments: [

@@ -1,5 +1,21 @@
 # My Universal React Project
 
+### Screenshots:
+
+<img src="https://j.gifs.com/Y7RxAM.gif" width="250">
+
+<img src="./public/screenshots/Homescreen.png" width="230">
+<img src="./public/screenshots/NewPost.png" width="230">
+
+- Login Authorization and Signup screens
+
+<img src="./public/screenshots/LoginAuth.png" width="230">
+<img src="./public/screenshots/SignupPage.png" width="230">
+
+
+## References
+- This project is done by following youtube tutorial by [Clever Programmer](https://www.youtube.com/c/CleverProgrammer).
+
 <p>
   <!-- iOS -->
   <a href="https://itunes.apple.com/app/apple-store/id982107779">
@@ -43,7 +59,3 @@ This project can be run from a web browser or the Expo client app. You may find 
 - See what API and components are [available in the React runtimes](https://docs.expo.dev/versions/latest/).
 - Find out more about developing apps and websites: [Guides](https://docs.expo.dev/guides/).
 
-
-
-# References
-Instagram clone tutorial by Clever Programmer: https://www.youtube.com/c/CleverProgrammer
