@@ -4,6 +4,7 @@ import { Divider } from "react-native-elements";
 import { bottomTabIcons as icons } from "./icons";
 import firebase from "../../firebase"
 
+
 const db = firebase.firestore();
 
 const BottomTabs = () => {
@@ -14,16 +15,12 @@ const BottomTabs = () => {
     const user = await firebase.auth().currentUser;
     const unsubscribe = db
       .collection("users")
-      .where("owner_uid", "==", user.uid)
-      .limit(1)
-      .onSnapshot((snapshot) =>
-        snapshot.docs.map((doc) => {
-          setCurrentLoggedInUser({
-            username: doc.data().username,
-            profilePicture: doc.data().profile_picture,
-          });
-        })
-      );
+      .doc(firebase.auth().currentUser.email)
+      .get()
+      .then(doc=>{
+        const data = doc.data()
+        setCurrentLoggedInUser(data)
+      })
     return unsubscribe;
   };
 
@@ -56,11 +53,10 @@ const BottomTabs = () => {
         {icons.map((icon, index) => (
           <Icon key={index} icon={icon} />
         ))}
-{/* TODO: currentLoggedInUser is null */}
         <Pressable onPress={() => setActiveTab("Profile")}>
           <Image
             source={{
-              uri: currentLoggedInUser.profilePicture,
+              uri: currentLoggedInUser.profile_picture,
             }}
             style={[
               styles.icon,
@@ -76,11 +72,7 @@ const BottomTabs = () => {
 
 const styles = StyleSheet.create({
   wrapper: {
-    // position:'absolute',
-    // width:'100%',
-    // bottom:'3%',
     zIndex: 999,
-    // backgroundColor:'black'
   },
 
   container: {
