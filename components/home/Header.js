@@ -1,7 +1,10 @@
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import React from "react";
+import { headerIcons } from "./icons";
+import { useNavigation } from "@react-navigation/native";
 
 const Header = () => {
+  const navigation = useNavigation()
   return (
     <View style={styles.container}>
       <TouchableOpacity>
@@ -12,16 +15,16 @@ const Header = () => {
       </TouchableOpacity>
 
       <View style={styles.iconsContainer}>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={()=>navigation.push('NewPostScreen')}>
         <Image
           style={styles.icon}
-          source={{uri:'https://img.icons8.com/fluency-systems-regular/60/ffffff/plus-2-math.png'}}
+          source={{uri:headerIcons.newPost}}
         />
       </TouchableOpacity>
       <TouchableOpacity>
         <Image
           style={styles.icon}
-          source={{uri:'https://img.icons8.com/fluency-systems-regular/60/ffffff/like--v1.png'}}
+          source={{uri:headerIcons.likes}}
         />
       </TouchableOpacity>
       <TouchableOpacity>
@@ -30,7 +33,7 @@ const Header = () => {
         </View>
         <Image
           style={styles.icon}
-          source={{uri:'https://img.icons8.com/fluency-systems-regular/60/ffffff/facebook-messenger.png'}}
+          source={{uri:headerIcons.messages}}
         />
       </TouchableOpacity>
       </View>
@@ -77,7 +80,7 @@ const styles = StyleSheet.create({
 
   unreadBadgeText:{
     color: 'white',
-    fontWeight:600,
+    fontWeight:'600',
   }
 });
 

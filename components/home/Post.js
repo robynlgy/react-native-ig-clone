@@ -1,37 +1,8 @@
-import {
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  TouchableOpacity,
-} from "react-native";
+import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import { Divider } from "react-native-elements";
 import React from "react";
-// import { postFooterIcons } from "../../data/posts";
+import { postFooterIcons } from "./icons";
 
-// To replace with db
-const postFooterIcons = [
-  {
-    name: "Like",
-    imageUrl:
-      "https://img.icons8.com/fluency-systems-regular/60/ffffff/like--v1.png",
-    likedImageUrl: "https://img.icons8.com/ios-glyphs/90/fa314a/like--v1.png",
-  },
-  {
-    name: "Comment",
-    imageUrl:
-      "https://img.icons8.com/material-outlined/48/ffffff/speech-bubble--v1.png",
-  },
-  {
-    name: "Share",
-    imageUrl: "https://img.icons8.com/sf-regular/48/ffffff/sent.png",
-  },
-  {
-    name: "Save",
-    imageUrl:
-      "https://img.icons8.com/fluency-systems-regular/48/FFFFFF/bookmark-ribbon--v1.png",
-  },
-];
 // Props: post object
 // Renders one post
 const Post = ({ post }) => {
@@ -116,7 +87,7 @@ const Likes = ({ post }) => {
   return (
     <View style={{ flexDirection: "row", marginTop: 5 }}>
       <Text style={{ color: "white", fontWeight: "600" }}>
-        {post.likes.toLocaleString('en')} likes
+        {post.likes.toLocaleString("en")} likes
       </Text>
     </View>
   );
@@ -154,20 +125,20 @@ const ViewComments = ({ post }) => {
   );
 };
 
-const Comments = ({post}) => {
+const Comments = ({ post }) => {
   return (
     <View>
-    {post.comments.map((comment,index) => (
-      <View key={index} style={{flexDirection:'row', marginTop:5}}>
-        <Text style={{color:'white'}}>
-          <Text style={{fontWeight:'600'}}>{comment.user}</Text>
-          <Text> {comment.comment}</Text>
-        </Text>
-      </View>
-    ))}
+      {post.comments.map((comment, index) => (
+        <View key={index} style={{ flexDirection: "row", marginTop: 5 }}>
+          <Text style={{ color: "white" }}>
+            <Text style={{ fontWeight: "600" }}>{comment.user}</Text>
+            <Text> {comment.comment}</Text>
+          </Text>
+        </View>
+      ))}
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   // Post
@@ -194,9 +165,7 @@ const styles = StyleSheet.create({
     height: 35,
     borderRadius: 50,
     marginLeft: 6,
-    // marginTop: 10,
     borderWidth: 1,
-    borderColor: "#ff8501",
   },
 
   userText: {
@@ -222,7 +191,6 @@ const styles = StyleSheet.create({
   },
 
   // POST FOOTER
-  // ICONS
   footerIcon: {
     width: 33,
     height: 33,
