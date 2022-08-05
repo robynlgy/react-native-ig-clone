@@ -2,7 +2,7 @@
 
 ### Screenshots:
 
-<img src="https://j.gifs.com/Y7RxAM.gif" width="250">
+<img src="https://j.gifs.com/WPRvNQ.gif" width="250">
 
 <img src="./public/screenshots/Homescreen.png" width="230">
 <img src="./public/screenshots/NewPost.png" width="230">
