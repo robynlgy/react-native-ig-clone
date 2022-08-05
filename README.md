@@ -4,7 +4,7 @@
 
 <img src="./public/screenshots/gif.gif" width="250">
 
-<img src="./public/screenshots/Homescreen.png" width="230">  <img src="./public/screenshots/NewPost.png" width="230">
+<img src="./public/screenshots/PostComments.png" width="230">  <img src="./public/screenshots/NewPost.png" width="230">
 
 - Login Authorization and Signup screens
 
