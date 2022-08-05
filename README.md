@@ -2,7 +2,6 @@
 
 ### Screenshots:
 
-<!-- <img src="https://j.gifs.com/WPRvNQ.gif" width="250"> -->
 <img src="./public/screenshots/gif.gif" width="250">
 
 <img src="./public/screenshots/Homescreen.png" width="230">  <img src="./public/screenshots/NewPost.png" width="230">
@@ -14,6 +13,13 @@
 
 ## References
 - This project is done by following youtube tutorial by [Clever Programmer](https://www.youtube.com/c/CleverProgrammer).
+
+## Next
+- Allows users to delete/edit posts
+- Allows users to add/edit/delete comments
+- Allow image uploads
+- Users should only see followed users' posts
+- Stories, Messages, Notifications, Reels, Shop, Profile page functions, etc.
 
 <p>
   <!-- iOS -->
